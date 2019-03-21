@@ -1,0 +1,25 @@
+.Items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ItemsBlock .Item {
+    width: 25%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.ItemsBlock .Item_Name {
+    margin: 5px;
+    color: blue;
+}
+
+.ItemsBlock .Item_Price {
+    margin: 5px;
+    color: green;
+}
+
+.ItemsBlock .Item_Quantity {
+    margin: 5px;
+    color: red;
+}
