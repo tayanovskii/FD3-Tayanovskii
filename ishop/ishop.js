@@ -15,14 +15,14 @@ var ShopItemsBlock = React.createClass({
         ).isRequired
     },
 
-    getDefaultProps: function () {
-        return {
-            name: "Unknown",
-            price: 0,
-            photo_url: "No photo",
-            quantity: 0,
-        };
-    },
+    // getDefaultProps: function () {
+    //     return {
+    //         name: "Unknown",
+    //         price: 0,
+    //         photo_url: "No photo",
+    //         quantity: 0,
+    //     };
+    // },
 
     render: function () {
         var itemsArr = [];
