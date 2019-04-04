@@ -1,0 +1,9 @@
+.FilterBlock
+{
+    width: 20%;
+}
+#stringArea
+{
+    width: 100%;
+    min-height: 200px;
+}
