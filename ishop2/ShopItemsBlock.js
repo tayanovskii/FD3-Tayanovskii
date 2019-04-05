@@ -18,7 +18,6 @@ var ShopItemsBlock = React.createClass({
     getInitialState: function () {
         return {
             selectedItemCode: 0,
-            deletedItemCode: 0,
             currentItems: this.props.items,
         };
     },
@@ -31,15 +30,9 @@ var ShopItemsBlock = React.createClass({
 
     itemDeleted: function (code) {
         this.setState({
-            deletedItemCode: code
-        }, this.deleteItem);
-
-    },
-
-    deleteItem: function () {
-        this.setState({
-            currentItems: this.state.currentItems.filter(v => v.code != this.state.deletedItemCode)
+            currentItems: this.state.currentItems.filter(v => v.code != code)
         });
+
     },
 
     render: function () {

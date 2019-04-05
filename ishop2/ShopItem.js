@@ -19,9 +19,9 @@ var ShopItem = React.createClass({
         this.props.cbItemSelected(this.props.code)
     },
     itemDelected: function (eo) {
-        const confirm = window.confirm("Do you really want to delete item?"); 
-        if(confirm == true)
-        this.props.cbItemDeleted(this.props.code)
+        const confirm = window.confirm("Do you really want to delete item?");
+        if (confirm == true)
+            this.props.cbItemDeleted(this.props.code)
     },
 
     render: function () {
@@ -35,11 +35,12 @@ var ShopItem = React.createClass({
             React.DOM.td({}, this.props.price),
             React.DOM.td({}, this.props.photo_url),
             React.DOM.td({}, this.props.quantity),
-            React.DOM.input({
-                type: 'button',
-                value: 'Delete',
-                onClick: this.itemDelected
-            }),
+            React.DOM.td({},
+                React.DOM.input({
+                    type: 'button',
+                    value: 'Delete',
+                    onClick: this.itemDelected
+                }), ),
         )
     }
 

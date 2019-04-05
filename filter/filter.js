@@ -77,7 +77,8 @@ var FilterBlock = React.createClass({
                 className: 'StringsAreaBlock'
             }, React.DOM.textarea({
                 id: 'stringArea',
-                value: this.state.stringArr.join('\n')
+                readOnly:true,
+                value: this.state.stringArr.join('\n'),
             })),
 
         );
