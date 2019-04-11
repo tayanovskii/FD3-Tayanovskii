@@ -1,48 +1,44 @@
-var ShopItem = React.createClass({
+import React from 'react';
+import PropTypes from 'prop-types';
 
-    displayName: 'ShopItem',
-
-    propTypes: {
-        code: React.PropTypes.number.isRequired,
-        name: React.PropTypes.string.isRequired,
-        price: React.PropTypes.number.isRequired,
-        photo_url: React.PropTypes.string.isRequired,
-        quantity: React.PropTypes.number.isRequired,
-        cbItemSelected: React.PropTypes.func.isRequired,
-        selectedItemCode: React.PropTypes.number.isRequired,
-        cbItemDeleted: React.PropTypes.func.isRequired,
-    },
+import './ShopItem.css';
 
 
+class ShopItem extends React.Component {
 
-    itemSelected: function (eo) {
+    static propTypes = {
+        code: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        photo_url: PropTypes.string.isRequired,
+        quantity: PropTypes.number.isRequired,
+        cbItemSelected: PropTypes.func.isRequired,
+        selectedItemCode: PropTypes.number.isRequired,
+        cbItemDeleted: PropTypes.func.isRequired,
+    };
+
+    itemSelected = (EO) => {
         this.props.cbItemSelected(this.props.code)
-    },
-    itemDelected: function (eo) {
+    };
+
+    itemDelected = (EO) => {
         const confirm = window.confirm("Do you really want to delete item?");
         if (confirm == true)
             this.props.cbItemDeleted(this.props.code)
-    },
+    };
 
-    render: function () {
+    render() {
         let currentClassName = '';
-        if (this.props.selectedItemCode == this.props.code) currentClassName = 'ItemSelected'
-        return React.DOM.tr({
-                className: currentClassName,
-                onClick: this.itemSelected
-            },
-            React.DOM.td({}, this.props.name),
-            React.DOM.td({}, this.props.price),
-            React.DOM.td({}, this.props.photo_url),
-            React.DOM.td({}, this.props.quantity),
-            React.DOM.td({},
-                React.DOM.input({
-                    type: 'button',
-                    value: 'Delete',
-                    onClick: this.itemDelected
-                }), ),
-        )
+        if (this.props.selectedItemCode == this.props.code) currentClassName = 'ItemSelected';
+        return <tr className={currentClassName} onClick={this.itemSelected}>
+            <td>{this.props.name}</td>
+            <td>{this.props.price}</td>
+            <td>{this.props.photo_url}</td>
+            <td>{this.props.quantity}</td>
+            <td>
+                <input type='button' value='Delete' onClick={this.itemDelected}></input>
+            </td>
+        </tr>
     }
-
-
-});
+};
+export default ShopItem;

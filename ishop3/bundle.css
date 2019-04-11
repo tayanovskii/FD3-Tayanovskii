@@ -1,0 +1,14 @@
+.ItemsTable 
+{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.ItemsTable td,th
+{
+    border: 1px solid black;
+}.ItemSelected
+{
+    background-color: blanchedalmond;
+}
+/*# sourceMappingURL=bundle.css.map*/

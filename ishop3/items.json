@@ -1,0 +1,87 @@
+[
+    {
+    "code": 1,
+    "name": "Please Please Me",
+    "price": 39,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c0/PleasePleaseMe_audio_cover.jpg/220px-PleasePleaseMe_audio_cover.jpg",
+    "quantity": 5
+},
+{
+    "code": 2,
+    "name": "With The Beatles",
+    "price": 59,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Withthebeatlescover.jpg/220px-Withthebeatlescover.jpg",
+    "quantity": 2
+},
+{
+    "code": 3,
+    "name": "A Hard Day's Night",
+    "price": 37,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/HardDayUK.jpg/220px-HardDayUK.jpg",
+    "quantity": 1
+},
+{
+    "code": 4,
+    "name": "Beatles for Sale",
+    "price": 1,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Beatlesforsale.jpg/220px-Beatlesforsale.jpg",
+    "quantity": 9
+},
+{
+    "code": 5,
+    "name": "Help!",
+    "price": 331,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e7/Help%21_%28The_Beatles_album_-_cover_art%29.jpg",
+    "quantity": 22
+},
+{
+    "code": 6,
+    "name": "Rubber Soul",
+    "price": 5,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg",
+    "quantity": 55
+},
+{
+    "code": 7,
+    "name": "Revolver",
+    "price": 9,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Revolver.jpg/220px-Revolver.jpg",
+    "quantity": 81
+},
+{
+    "code": 8,
+    "name": "Sgt. Pepper's Lonely Hearts Club Band",
+    "price": 14,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg",
+    "quantity": 0
+},
+{
+    "code": 9,
+    "name": "Magical Mystery Tour",
+    "price": 10,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/MagicalMysteryTourDoubleEPcover.jpg",
+    "quantity": 2
+},
+{
+    "code": 10,
+    "name": "The Beatles (White Album)",
+    "price": 86,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/TheBeatles68LP.jpg/220px-TheBeatles68LP.jpg",
+    "quantity": 99
+},
+{
+    "code": 11,
+    "name": "Yellow Submarine",
+    "price": 55,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/TheBeatles-YellowSubmarinealbumcover.jpg",
+    "quantity": 101
+},
+{
+    "code": 12,
+    "name": "Abbey Roa",
+    "price": 99,
+    "photo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/42/Beatles_-_Abbey_Road.jpg/220px-Beatles_-_Abbey_Road.jpg",
+    "quantity": 4
+}
+
+]
