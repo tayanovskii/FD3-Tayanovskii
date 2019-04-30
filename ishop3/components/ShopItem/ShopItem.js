@@ -15,6 +15,7 @@ class ShopItem extends React.Component {
         cbItemSelected: PropTypes.func.isRequired,
         selectedItemCode: PropTypes.number.isRequired,
         cbItemDeleted: PropTypes.func.isRequired,
+        cbEnableEditItemMode:  PropTypes.func.isRequired,
     };
 
     itemSelected = (EO) => {
@@ -26,6 +27,12 @@ class ShopItem extends React.Component {
         if (confirm == true)
             this.props.cbItemDeleted(this.props.code)
     };
+    
+    enableEditMode = (EO) =>
+    {
+        this.props.cbEnableEditItemMode(this.props.code);
+        EO.stopPropagation();
+    }
 
     render() {
         let currentClassName = '';
@@ -36,6 +43,7 @@ class ShopItem extends React.Component {
             <td>{this.props.photo_url}</td>
             <td>{this.props.quantity}</td>
             <td>
+                <input type='button' value='Edit' onClick={this.enableEditMode}></input>
                 <input type='button' value='Delete' onClick={this.itemDelected}></input>
             </td>
         </tr>

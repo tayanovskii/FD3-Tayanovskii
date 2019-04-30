@@ -1,0 +1,134 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import './ShopItemsBlock.css'
+
+import ShopItem from '../ShopItem/ShopItem'
+import ItemViewCard from '../ItemViewCard/ItemViewCard'
+import ItemEditCard from '../ItemEditCard/ItemEditCard'
+
+class ShopItemsBlock extends React.Component {
+    static propTypes = {
+        shopName: PropTypes.string.isRequired,
+        items: PropTypes.arrayOf(
+            PropTypes.shape({
+                code: PropTypes.number.isRequired,
+                name: PropTypes.string.isRequired,
+                price: PropTypes.number.isRequired,
+                photo_url: PropTypes.string.isRequired,
+                quantity: PropTypes.number.isRequired,
+            })
+        ).isRequired
+    };
+
+    state = {
+        selectedItemCode: 0,
+        currentItems: this.props.items,
+        itemCardMode: 0  // 0 - default, 1 - view mode, 2 - edit mode, 3 - create mode
+    };
+
+    itemSelected = (code) => {
+        this.setState({
+            selectedItemCode: code,
+            itemCardMode: 1
+        });
+    };
+    
+    enableEditItemMode = (code) =>
+    {
+        this.setState(
+            {
+                itemCardMode: 2,
+                selectedItemCode: code,
+               
+            }
+        )
+    };
+    enableCreateItemMode = () =>
+    {
+        this.setState(
+            {
+                itemCardMode: 3,
+            }
+        )
+    };
+
+    saveItem = (newItem) =>
+    {
+        if(this.state.itemCardMode == 2)
+        this.setState(
+            {
+                currentItems: this.state.currentItems.map(oldItem=>
+                    oldItem.code==newItem.code ? newItem : oldItem),
+                    itemCardMode : 0,
+            }
+        )
+
+        if(this.state.itemCardMode == 3)
+        this.setState(
+            {
+                currentItems: this.state.currentItems.push(newItem)
+            }
+        )
+    };
+
+    itemDeleted = (code) => {
+        this.setState({
+            itemCardMode: 0,
+            currentItems: this.state.currentItems.filter(v => v.code != code),
+        });
+    };
+
+    render() {
+        var itemsArr = this.state.currentItems.map(v =>
+            <ShopItem key={v.code}
+                code={v.code}
+                photo_url={v.photo_url}
+                name={v.name}
+                price={v.price}
+                quantity={v.quantity}
+                cbItemSelected={this.itemSelected}
+                selectedItemCode={this.state.selectedItemCode}
+                cbItemDeleted={this.itemDeleted}
+                cbEnableEditItemMode={this.enableEditItemMode}
+            />
+        )
+
+        if(this.state.itemCardMode==1 || this.state.itemCardMode==2) // get item to view or edit
+        var selectedItem = this.state.currentItems.find(value => value.code == this.state.selectedItemCode);
+
+        if(this.state.itemCardMode==3) //get code(index) to create new item
+        {
+            var lastItem = this.state.currentItems[this.state.currentItems.length - 1];
+            var newCode = lastItem.code + 1;
+            var selectedItem = {code: newCode }
+        }
+        
+        return (
+            <div className='ItemsBlock'>
+                <h2>{this.props.shopName}</h2>
+                <table className='ItemsTable'>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>URL</th>
+                            <th>Quantity</th>
+                            <th>Control</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {itemsArr}
+                    </tbody>
+                </table>
+                <input type='button' value='New product' onClick={this.enableCreateItemMode}></input>
+                {this.state.itemCardMode == 1 && <ItemViewCard key={selectedItem.code} item={selectedItem} />}
+                {this.state.itemCardMode == 2 && <ItemEditCard key={selectedItem.code} item={selectedItem} cbSaveItem={this.saveItem}/>}
+            </div>
+
+        );
+    }
+};
+
+export default ShopItemsBlock;
+

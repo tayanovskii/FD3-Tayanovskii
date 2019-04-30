@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ShopItemsBlock from './components/ShopItemsBlock';
+import ShopItemsBlock from './components/ShopItemBlock/ShopItemsBlock';
 
 let itemsArr=require('./items.json');
 let shopNameText="Shop3";
