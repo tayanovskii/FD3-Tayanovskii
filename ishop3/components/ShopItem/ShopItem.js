@@ -16,10 +16,17 @@ class ShopItem extends React.Component {
         selectedItemCode: PropTypes.number.isRequired,
         cbItemDeleted: PropTypes.func.isRequired,
         cbEnableEditItemMode:  PropTypes.func.isRequired,
+        //itemIsChanged: PropTypes.bool.isRequired,
+        canDelete: PropTypes.bool.isRequired,
+        canEdit: PropTypes.bool.isRequired,
+
     };
 
     itemSelected = (EO) => {
+        if(this.props.canEdit)
+        {
         this.props.cbItemSelected(this.props.code)
+        }
     };
 
     itemDelected = (EO) => {
@@ -43,8 +50,8 @@ class ShopItem extends React.Component {
             <td>{this.props.photo_url}</td>
             <td>{this.props.quantity}</td>
             <td>
-                <input type='button' value='Edit' onClick={this.enableEditMode}></input>
-                <input type='button' value='Delete' onClick={this.itemDelected}></input>
+                <input type='button' value='Edit' onClick={this.enableEditMode} disabled={!this.props.canEdit} ></input>
+                <input type='button' value='Delete' onClick={this.itemDelected} disabled={!this.props.canDelete} ></input>
             </td>
         </tr>
     }

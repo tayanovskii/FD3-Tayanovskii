@@ -24,7 +24,8 @@ class ShopItemsBlock extends React.Component {
     state = {
         selectedItemCode: 0,
         currentItems: this.props.items,
-        itemCardMode: 0  // 0 - default, 1 - view mode, 2 - edit mode, 3 - create mode
+        itemCardMode: 0,  // 0 - default, 1 - view mode, 2 - edit mode, 3 - create mode
+        itemChanged: false 
     };
 
     itemSelected = (code) => {
@@ -60,7 +61,8 @@ class ShopItemsBlock extends React.Component {
             {
                 currentItems: this.state.currentItems.map(oldItem=>
                     oldItem.code==newItem.code ? newItem : oldItem),
-                    itemCardMode : 0,
+                itemCardMode : 0,
+                itemChanged : false,
             }
         )
 
@@ -79,6 +81,21 @@ class ShopItemsBlock extends React.Component {
         });
     };
 
+    itemIsChanged = () =>
+    {
+        this.setState({
+            itemChanged: true,
+        });
+    }
+
+    cancelEdit = () =>
+    {
+        this.setState({
+            itemChanged: false,
+            itemCardMode: 0,
+        });
+    }
+
     render() {
         var itemsArr = this.state.currentItems.map(v =>
             <ShopItem key={v.code}
@@ -91,11 +108,14 @@ class ShopItemsBlock extends React.Component {
                 selectedItemCode={this.state.selectedItemCode}
                 cbItemDeleted={this.itemDeleted}
                 cbEnableEditItemMode={this.enableEditItemMode}
+                //itemIsChanged = {this.state.itemChanged}
+                canDelete={this.state.itemCardMode == 0 || this.state.itemCardMode == 1} // can delete if item card is in view or default mode only
+                canEdit = {this.state.itemCardMode != 3 && !this.state.itemChanged}
             />
         )
 
         if(this.state.itemCardMode==1 || this.state.itemCardMode==2) // get item to view or edit
-        var selectedItem = this.state.currentItems.find(value => value.code == this.state.selectedItemCode);
+        var selectedItem = this.state.currentItems.find(item => item.code == this.state.selectedItemCode);
 
         if(this.state.itemCardMode==3) //get code(index) to create new item
         {
@@ -121,9 +141,9 @@ class ShopItemsBlock extends React.Component {
                         {itemsArr}
                     </tbody>
                 </table>
-                <input type='button' value='New product' onClick={this.enableCreateItemMode}></input>
+                <input type='button' value='New product' onClick={this.enableCreateItemMode} disabled={this.state.itemCardMode > 1}></input>
                 {this.state.itemCardMode == 1 && <ItemViewCard key={selectedItem.code} item={selectedItem} />}
-                {this.state.itemCardMode == 2 && <ItemEditCard key={selectedItem.code} item={selectedItem} cbSaveItem={this.saveItem}/>}
+                {this.state.itemCardMode > 1 && <ItemEditCard key={selectedItem.code} item={selectedItem} itemMode={this.state.itemCardMode} cbSaveItem={this.saveItem} cbItemIsChanged={this.itemIsChanged} cbCancelEdit={this.cancelEdit}/>}
             </div>
 
         );
