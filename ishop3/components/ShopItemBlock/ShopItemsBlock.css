@@ -1,11 +1,10 @@
-.ItemsTable 
-{
+.ItemsTable {
     border-collapse: collapse;
     border: 1px solid black;
     font-size: 0.9em;
 }
 
-.ItemsTable td,th
-{
+.ItemsTable td,
+th {
     border: 1px solid black;
 }

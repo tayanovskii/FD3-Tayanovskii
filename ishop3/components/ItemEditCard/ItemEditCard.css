@@ -1,0 +1,28 @@
+.errorMsg {
+  color: #cc0000;
+  margin-left: 12px;
+}
+
+.EditCardForm label {
+  display: block;
+  margin: 0px 0px 15px 0px;
+}
+
+.EditCardForm label>span {
+  width: 100px;
+  font-weight: bold;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px;
+}
+
+.form-EditCardForm-2 input {
+  box-sizing: border-box;
+  padding: 7px;
+  outline: none;
+}
+
+.EditCardForm label>span.errorMsg {
+  float: none;
+  color: red
+}

@@ -25,5 +25,8 @@
 .ItemViewCard .ItemQuantity {
     margin: 5px;
     color: red;
-}
+}.errorMsg {
+    color: #cc0000;
+    margin-left: 12px;
+  }
 /*# sourceMappingURL=bundle.css.map*/
