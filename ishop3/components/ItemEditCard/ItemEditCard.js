@@ -120,22 +120,22 @@ class ItemEditCard extends React.Component {
                 <p className="ItemID">ID: {this.props.item.code}</p>
 
                 <label htmlFor="ItemName"><span>Name</span>
-                    <input type='text' name='name' id='ItemName' value={this.state.currentItem.name || ''} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
+                    <input type='text' name='name' value={this.state.currentItem.name || ''} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
                     <span className="errorMsg">{this.state.errors.name}</span>
                 </label>
 
                 <label htmlFor="ItemPrice"><span>Price</span>
-                    <input type='number' name='price' id='ItemPrice' value={typeof (this.state.currentItem.price) === 'undefined' ? '0' : this.state.currentItem.price} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
+                    <input type='number' name='price' value={typeof (this.state.currentItem.price) === 'undefined' ? '0' : this.state.currentItem.price} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
                     <span className="errorMsg">{this.state.errors.price}</span>
                 </label>
 
                 <label htmlFor="ItemURL"><span>URL</span>
-                    <input type='text' name='photo_url' id='ItemURL' value={this.state.currentItem.photo_url || ''} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
+                    <input type='text' name='photo_url' value={this.state.currentItem.photo_url || ''} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
                     <span className="errorMsg">{this.state.errors.photo_url}</span>
                 </label>
 
                 <label htmlFor="ItemQuantity"><span>Quantity</span>
-                    <input type='number' name='quantity' id='ItemQuantity' value={typeof (this.state.currentItem.quantity) === 'undefined' ? '0' : this.state.currentItem.quantity} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
+                    <input type='number' name='quantity' value={typeof (this.state.currentItem.quantity) === 'undefined' ? '0' : this.state.currentItem.quantity} onChange={this.handleChange} onBlur={this.handleOnBlur}></input>
                     <span className="errorMsg">{this.state.errors.quantity}</span>
                 </label>
 

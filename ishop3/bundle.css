@@ -1,12 +1,11 @@
-.ItemsTable 
-{
+.ItemsTable {
     border-collapse: collapse;
     border: 1px solid black;
     font-size: 0.9em;
 }
 
-.ItemsTable td,th
-{
+.ItemsTable td,
+th {
     border: 1px solid black;
 }.ItemSelected
 {
@@ -26,7 +25,31 @@
     margin: 5px;
     color: red;
 }.errorMsg {
-    color: #cc0000;
-    margin-left: 12px;
-  }
+  color: #cc0000;
+  margin-left: 12px;
+}
+
+.EditCardForm label {
+  display: block;
+  margin: 0px 0px 15px 0px;
+}
+
+.EditCardForm label>span {
+  width: 100px;
+  font-weight: bold;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px;
+}
+
+.form-EditCardForm-2 input {
+  box-sizing: border-box;
+  padding: 7px;
+  outline: none;
+}
+
+.EditCardForm label>span.errorMsg {
+  float: none;
+  color: red
+}
 /*# sourceMappingURL=bundle.css.map*/
