@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-//import './RainbowFrame.css'
-
 class RainbowFrame extends React.Component {
     static propTypes = {
         colors: PropTypes.arrayOf(PropTypes.string).isRequired
@@ -10,7 +8,7 @@ class RainbowFrame extends React.Component {
 
     render() {
      
-        let arrayFrames = this.props.colors.reduce((previous, current, ind) =>
+        let arrayFrames = this.props.colors.reduce((previous, current) =>
         {
             return previous = <div style={{border:"solid 5px "+ current,margin:"4px"}}>{previous}</div>
             
